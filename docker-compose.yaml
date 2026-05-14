@@ -1,0 +1,14 @@
+name: homelab_server
+
+services:
+  db:
+    image: postgres:alpine3.23
+    container_name: homelab_db
+    environment:
+      - POSTGRES_USER=daemia
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=homelab
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/volumes/sides/homelab/postgresql/:/var/lib/postgresql

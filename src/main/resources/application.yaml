@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: homelab_server
+  datasource:
+    # Add vm options for username, password and url!!! The username and password should be the same as in your compose.env!
+    # -Dspring.datasource.url=jdbc:postgresql://localhost:5432/<your db name>
+    # -Dspring.datasource.username=<your username>
+    # -Dspring.datasource.password=<your password>
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, info"
+  endpoint:
+    health:
+      probes:
+        enabled: true
