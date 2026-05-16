@@ -76,10 +76,16 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions [BOT]"
+          
+          NEW_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          
           git add pom.xml
-          git commit -m "$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout) [skip ci]"
-          git push
-
-
-
-
+          git commit -m "chore (BOT): bump version to $NEW_VERSION [skip ci]"
+          git push origin master
+          
+          git checkout dev
+          git checkout master pom.xml
+          
+          git add pom.xml
+          git commit -m "chore (BOT): sync version to $NEW_VERSION from master [skip ci]"
+          git push origin dev
