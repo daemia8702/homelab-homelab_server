@@ -81,11 +81,11 @@ jobs:
           
           git add pom.xml
           git commit -m "chore (BOT): bump version to $NEW_VERSION [skip ci]"
-          git push origin main
+          git push origin master
           
           git checkout dev
-          git checkout main pom.xml
+          git checkout master pom.xml
           
           git add pom.xml
-          git commit -m "chore (BOT): sync version to $NEW_VERSION from main [skip ci]"
+          git commit -m "chore (BOT): sync version to $NEW_VERSION from master [skip ci]"
           git push origin dev
