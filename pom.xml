@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.daemia</groupId>
     <artifactId>homelab_server</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8</version>
     <name>homelab_server</name>
     <description>homelab_server</description>
     <url/>
