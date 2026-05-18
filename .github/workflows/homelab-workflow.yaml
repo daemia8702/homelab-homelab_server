@@ -29,7 +29,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
 
     outputs:
-      current_tag: ${{ steps.project_version.outputs.VERSION }}
+      current_tag: ${{ steps.project_version.outputs.version }}
 
     steps:
       - name: Checkout repository
@@ -65,7 +65,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/homelab-app:${{ steps.project_version.outputs.VERSION }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/homelab-app:${{ steps.project_version.outputs.version }}
 
   bump-version:
     name: Bump and sync version
