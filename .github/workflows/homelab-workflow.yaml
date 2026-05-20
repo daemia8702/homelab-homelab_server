@@ -122,5 +122,6 @@ jobs:
     with:
       app_name: homelab-app
       image_tag: ${{ needs.build-and-push.outputs.current_tag }}
-    secrets: ${{ secrets.HOMELAB_OPS_SECRET }}
+    secrets:
+      GITOPS_TOKEN: ${{ secrets.HOMELAB_OPS_SECRET }}
 
